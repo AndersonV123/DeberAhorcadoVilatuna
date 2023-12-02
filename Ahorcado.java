@@ -32,6 +32,19 @@ public class Ahorcado {
                         letraEncontrada = true;
                     }
                 }
+                if (!letrasUsadas[letra - 'a']) {
+                    letrasUsadas[letra - 'a'] = true;
+                    if (!letraEncontrada) {
+                        intentos--;
+                        System.out.println("Letra incorrecta.");
+                    }
+                } else {
+                    System.out.println("Ya has usado esta letra. Prueba con otra.");
+                }
+
+                if (String.valueOf(palabraSecreta).equals(palabraSeleccionada)) {
+                    palabraDescubierta = true;
+                }
             }
         }
     }
