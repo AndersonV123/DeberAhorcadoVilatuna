@@ -19,6 +19,7 @@ public class Ahorcado {
             int intentos = 7;
             boolean palabraDescubierta = false;
             boolean[] letrasUsadas = new boolean[26];
+
             while (intentos > 0 && !palabraDescubierta) {
                 System.out.println("\nPalabra a adivinar: " + String.valueOf(palabraSecreta));
                 System.out.println("Intentos restantes: " + intentos);
@@ -32,6 +33,7 @@ public class Ahorcado {
                         letraEncontrada = true;
                     }
                 }
+
                 if (!letrasUsadas[letra - 'a']) {
                     letrasUsadas[letra - 'a'] = true;
                     if (!letraEncontrada) {
@@ -46,6 +48,19 @@ public class Ahorcado {
                     palabraDescubierta = true;
                 }
             }
+
+            if (palabraDescubierta) {
+                System.out.println("\n¡Felicidades! Has adivinado la palabra: " + palabraSeleccionada);
+            } else {
+                System.out.println("\nLo siento, has agotado tus intentos. La palabra era: " + palabraSeleccionada);
+            }
+
+            System.out.print("\n¿Quieres jugar de nuevo? (S/N): ");
+            char respuesta = scanner.next().charAt(0);
+            jugar = (respuesta == 'S' || respuesta == 's');
         }
+
+        System.out.println("¡Gracias por jugar!");
+        scanner.close();
     }
 }
