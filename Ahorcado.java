@@ -19,6 +19,20 @@ public class Ahorcado {
             int intentos = 7;
             boolean palabraDescubierta = false;
             boolean[] letrasUsadas = new boolean[26];
+            while (intentos > 0 && !palabraDescubierta) {
+                System.out.println("\nPalabra a adivinar: " + String.valueOf(palabraSecreta));
+                System.out.println("Intentos restantes: " + intentos);
+                System.out.print("Ingresa una letra: ");
+                char letra = scanner.next().charAt(0);
+
+                boolean letraEncontrada = false;
+                for (int i = 0; i < palabraSeleccionada.length(); i++) {
+                    if (palabraSeleccionada.charAt(i) == letra) {
+                        palabraSecreta[i] = letra;
+                        letraEncontrada = true;
+                    }
+                }
+            }
         }
     }
 }
